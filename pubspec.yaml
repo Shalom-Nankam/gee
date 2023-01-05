@@ -46,7 +46,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter_native_splash:
-  image: assets/images/icon.png
+  image: assets/images/icon1.png
   color: "#657899"
 
 # For information on the generic Dart part of this file, see the
@@ -59,9 +59,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - assets/
-    - assets/images
+  # assets:
+  #   - assets/
+  #   - assets/images
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
