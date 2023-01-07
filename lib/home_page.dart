@@ -27,8 +27,8 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
         label: const Icon(
-          Icons.note_outlined,
-          size: 20,
+          Icons.edit_note,
+          size: 30,
         ),
       ),
       floatingActionButtonLocation:
