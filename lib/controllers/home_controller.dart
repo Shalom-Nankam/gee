@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class HomeController extends State<HomeScreen> {
   SpeechToText userSpeech = SpeechToText();
   bool speechToTextIsEnabled = false;
-  bool isRecordingSPeech = false;
+  bool isRecordingSpeech = false;
   String convertedSPeechToText = '';
 
   @override
@@ -30,14 +30,14 @@ class HomeController extends State<HomeScreen> {
   void recordSpeech() async {
     await userSpeech.listen(onResult: speechResult);
     setState(() {
-      isRecordingSPeech = true;
+      isRecordingSpeech = true;
     });
   }
 
   void stopRecordingSpeech() async {
     await userSpeech.stop();
     setState(() {
-      isRecordingSPeech = false;
+      isRecordingSpeech = false;
     });
   }
 
