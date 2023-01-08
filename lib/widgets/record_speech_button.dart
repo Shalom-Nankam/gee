@@ -8,7 +8,7 @@ class RecordSpeechButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 150,
-      width: 300,
+      width: 250,
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),

@@ -41,7 +41,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
               ),
               SizedBox(
                 height: 200,
-                width: double.infinity,
+                width: 300,
                 child: controller.isRecordingSpeech
                     ? const RecordSpeechButton(toRecord: false)
                     : const RecordSpeechButton(toRecord: true),
@@ -50,12 +50,15 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
           ),
         )),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: const Color(0xff000000),
-        onPressed: () {},
-        label: const Icon(
-          Icons.edit_note,
-          size: 30,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: FloatingActionButton.extended(
+          backgroundColor: const Color(0xff000000),
+          onPressed: () {},
+          label: const Icon(
+            Icons.edit_note,
+            size: 30,
+          ),
         ),
       ),
       floatingActionButtonLocation:
