@@ -27,9 +27,12 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
               const SizedBox(
                 height: 70,
               ),
-              const Text('Tap the button to begin recording',
+              Text(
+                  controller.isRecordingSpeech
+                      ? controller.stopRecordInstruction
+                      : controller.recordInstruction,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color(0xff000000))),
