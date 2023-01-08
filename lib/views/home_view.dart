@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gee/controllers/home_controller.dart';
 import 'package:gee/views/statelessview.dart';
+import 'package:gee/widgets/record_speech_button.dart';
 
 class HomeView extends StatelessView<HomeScreen, HomeController> {
   const HomeView(HomeController state, {Key? key}) : super(state, key: key);
@@ -36,14 +37,11 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
                 height: 40,
               ),
               SizedBox(
-                height: 100,
+                height: 200,
                 width: double.infinity,
-                child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.mic,
-                      size: 100,
-                    )),
+                child: controller.isRecordingSpeech
+                    ? const RecordSpeechButton(toRecord: false)
+                    : const RecordSpeechButton(toRecord: true),
               )
             ],
           ),
