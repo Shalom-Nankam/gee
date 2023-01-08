@@ -15,6 +15,8 @@ class HomeController extends State<HomeScreen> {
   bool speechToTextIsEnabled = false;
   bool isRecordingSpeech = false;
   String convertedSPeechToText = '';
+  String recordInstruction = 'Tap the button to begin recording';
+  String stopRecordInstruction = 'Tap the button when done speaking';
 
   @override
   void initState() {
