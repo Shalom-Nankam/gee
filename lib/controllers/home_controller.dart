@@ -1,5 +1,5 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
+import 'package:gee/views/home_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,6 +11,6 @@ class HomeScreen extends StatefulWidget {
 class HomeController extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return HomeView(this);
   }
 }

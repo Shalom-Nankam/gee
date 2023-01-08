@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:gee/home_page.dart';
+import 'package:gee/controllers/home_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +26,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(useMaterial3: true),
         darkTheme: ThemeData(useMaterial3: true),
         title: 'Material App',
-        home: const Home());
+        home: const HomeScreen());
   }
 }
