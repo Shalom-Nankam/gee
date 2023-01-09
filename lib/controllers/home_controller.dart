@@ -49,13 +49,9 @@ class HomeController extends State<HomeScreen> {
     });
   }
 
-  startRecord() {
-    recordSpeech();
-  }
+  void startRecord() => recordSpeech();
 
-  stopRecord() {
-    stopRecordingSpeech();
-  }
+  void stopRecord() => stopRecordingSpeech();
 
   @override
   Widget build(BuildContext context) {

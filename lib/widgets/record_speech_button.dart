@@ -16,7 +16,7 @@ class RecordSpeechButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
           border: Border.all(color: const Color(0xff000000), width: 2)),
       child: IconButton(
-          onPressed: () => pressAction,
+          onPressed: pressAction,
           icon: toRecord
               ? const Icon(
                   Icons.mic,
