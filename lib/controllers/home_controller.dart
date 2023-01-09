@@ -29,14 +29,14 @@ class HomeController extends State<HomeScreen> {
     setState(() {});
   }
 
-  void recordSpeech() async {
+  recordSpeech() async {
     await userSpeech.listen(onResult: speechResult);
     setState(() {
       isRecordingSpeech = true;
     });
   }
 
-  void stopRecordingSpeech() async {
+  stopRecordingSpeech() async {
     await userSpeech.stop();
     setState(() {
       isRecordingSpeech = false;
@@ -47,6 +47,14 @@ class HomeController extends State<HomeScreen> {
     setState(() {
       convertedSPeechToText = result.recognizedWords;
     });
+  }
+
+  startRecord() {
+    recordSpeech();
+  }
+
+  stopRecord() {
+    stopRecordingSpeech();
   }
 
   @override
