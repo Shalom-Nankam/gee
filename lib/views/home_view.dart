@@ -23,39 +23,13 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
         padding: const EdgeInsets.all(16),
         child: SafeArea(
             child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 70,
-              ),
-              Text(
-                  controller.userSpeech.isListening
-                      ? controller.stopRecordInstruction
-                      : controller.recordInstruction,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xff000000))),
-              const SizedBox(
-                height: 40,
-              ),
-              SizedBox(
-                height: 200,
-                width: 300,
-                child: controller.userSpeech.isListening
-                    ? RecordSpeechButton(
-                        toRecord: false,
-                        pressAction: () => controller.stopRecordingSpeech(),
-                      )
-                    : RecordSpeechButton(
-                        toRecord: true,
-                        pressAction: () => controller.recordSpeech(),
-                      ),
-              ),
-            ],
-          ),
-        )),
+                child: Column(
+          children: const [
+            SizedBox(
+              height: 70,
+            )
+          ],
+        ))),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 30),
@@ -75,6 +49,51 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
+    );
+  }
+}
+
+class RecordSearch extends StatelessWidget {
+  const RecordSearch({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+
+  final HomeController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(
+          height: 70,
+        ),
+        Text(
+            controller.userSpeech.isListening
+                ? controller.stopRecordInstruction
+                : controller.recordInstruction,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff000000))),
+        const SizedBox(
+          height: 40,
+        ),
+        SizedBox(
+          height: 200,
+          width: 300,
+          child: controller.userSpeech.isListening
+              ? RecordSpeechButton(
+                  toRecord: false,
+                  pressAction: () => controller.stopRecordingSpeech(),
+                )
+              : RecordSpeechButton(
+                  toRecord: true,
+                  pressAction: () => controller.recordSpeech(),
+                ),
+        ),
+      ],
     );
   }
 }
