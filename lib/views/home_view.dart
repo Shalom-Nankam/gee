@@ -43,7 +43,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
               SizedBox(
                 height: 200,
                 width: 300,
-                child: controller.isRecordingSpeech
+                child: controller.userSpeech.isListening
                     ? RecordSpeechButton(
                         toRecord: false,
                         pressAction: () {},
