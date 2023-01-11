@@ -23,49 +23,9 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
         padding: const EdgeInsets.all(16),
         child: SafeArea(
             child: SingleChildScrollView(
-                child: Column(
-          children: [
-            const SizedBox(
-              height: 70,
-            ),
-            const Text('Type your search text in the box below',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff000000))),
-            const SizedBox(
-              height: 20,
-            ),
-            Container(
-              padding: const EdgeInsets.all(16),
-              width: double.infinity,
-              height: 300,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: const Border.fromBorderSide(
-                      BorderSide(color: Color(0xff000000)))),
-              child: const TextField(
-                decoration: InputDecoration(border: InputBorder.none),
-                expands: true,
-                maxLines: null,
-                minLines: null,
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            OutlinedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Go',
-                  style: TextStyle(
-                      color: Color(0xffFFFFFF),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                )),
-          ],
-        ))),
+                child: controller.typeSearch
+                    ? const TypeSearch()
+                    : RecordSearch(controller: controller))),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 30),
@@ -85,6 +45,59 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
+    );
+  }
+}
+
+class TypeSearch extends StatelessWidget {
+  const TypeSearch({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(
+          height: 70,
+        ),
+        const Text('Type your search text in the box below',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff000000))),
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          padding: const EdgeInsets.all(16),
+          width: double.infinity,
+          height: 300,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: const Border.fromBorderSide(
+                  BorderSide(color: Color(0xff000000)))),
+          child: const TextField(
+            decoration: InputDecoration(border: InputBorder.none),
+            expands: true,
+            maxLines: null,
+            minLines: null,
+          ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        OutlinedButton(
+            onPressed: () {},
+            child: const Text(
+              'Go',
+              style: TextStyle(
+                  color: Color(0xffFFFFFF),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            )),
+      ],
     );
   }
 }
