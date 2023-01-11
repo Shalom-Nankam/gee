@@ -29,7 +29,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
                 height: 70,
               ),
               Text(
-                  controller.isRecordingSpeech
+                  controller.userSpeech.isListening
                       ? controller.stopRecordInstruction
                       : controller.recordInstruction,
                   textAlign: TextAlign.center,
@@ -46,11 +46,11 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
                 child: controller.isRecordingSpeech
                     ? RecordSpeechButton(
                         toRecord: false,
-                        pressAction: controller.startRecord(),
+                        pressAction: () {},
                       )
                     : RecordSpeechButton(
                         toRecord: true,
-                        pressAction: controller.stopRecord(),
+                        pressAction: () {},
                       ),
               ),
             ],

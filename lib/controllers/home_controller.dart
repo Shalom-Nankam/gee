@@ -31,16 +31,12 @@ class HomeController extends State<HomeScreen> {
 
   recordSpeech() async {
     await userSpeech.listen(onResult: speechResult);
-    setState(() {
-      isRecordingSpeech = true;
-    });
+    setState(() {});
   }
 
   stopRecordingSpeech() async {
     await userSpeech.stop();
-    setState(() {
-      isRecordingSpeech = false;
-    });
+    setState(() {});
   }
 
   void speechResult(SpeechRecognitionResult result) {
@@ -49,9 +45,19 @@ class HomeController extends State<HomeScreen> {
     });
   }
 
-  void startRecord() => recordSpeech();
+  // void startRecord() {
+  //   recordSpeech();
+  //   setState(() {
+  //     isRecordingSpeech = true;
+  //   });
+  // }
 
-  void stopRecord() => stopRecordingSpeech();
+  // void stopRecord() {
+  //   stopRecordingSpeech();
+  //   setState(() {
+  //     isRecordingSpeech = false;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
