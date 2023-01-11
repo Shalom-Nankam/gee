@@ -46,11 +46,11 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
                 child: controller.userSpeech.isListening
                     ? RecordSpeechButton(
                         toRecord: false,
-                        pressAction: () {},
+                        pressAction: () => controller.stopRecordingSpeech(),
                       )
                     : RecordSpeechButton(
                         toRecord: true,
-                        pressAction: () {},
+                        pressAction: () => controller.recordSpeech(),
                       ),
               ),
             ],
