@@ -12,7 +12,7 @@ void main() async {
 }
 
 initialization() {
-  sleep(const Duration(seconds: 5));
+  sleep(const Duration(seconds: 3));
   FlutterNativeSplash.remove();
 }
 
