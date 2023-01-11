@@ -62,10 +62,15 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
         child: FloatingActionButton.extended(
           backgroundColor: const Color(0xff000000),
           onPressed: () {},
-          label: const Icon(
-            Icons.edit_note,
-            size: 30,
-          ),
+          label: controller.typeSearch
+              ? const Icon(
+                  Icons.mic,
+                  size: 30,
+                )
+              : const Icon(
+                  Icons.edit_note,
+                  size: 30,
+                ),
         ),
       ),
       floatingActionButtonLocation:
