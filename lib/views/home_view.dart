@@ -24,9 +24,33 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
         child: SafeArea(
             child: SingleChildScrollView(
                 child: Column(
-          children: const [
-            SizedBox(
+          children: [
+            const SizedBox(
               height: 70,
+            ),
+            const Text('Type your search text in the box below',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff000000))),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.all(16),
+              width: double.infinity,
+              height: 300,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: const Border.fromBorderSide(
+                      BorderSide(color: Color(0xff000000)))),
+              child: const TextField(
+                decoration: InputDecoration(border: InputBorder.none),
+                expands: true,
+                maxLines: null,
+                minLines: null,
+              ),
             )
           ],
         ))),
