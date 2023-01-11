@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gee/controllers/home_controller.dart';
 import 'package:gee/views/statelessview.dart';
+import 'package:gee/widgets/search_button.dart';
 
 import '../widgets/record_speech_button.dart';
 
@@ -86,17 +87,11 @@ class TypeSearch extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 30,
+          height: 80,
         ),
-        OutlinedButton(
-            onPressed: () {},
-            child: const Text(
-              'Go',
-              style: TextStyle(
-                  color: Color(0xffFFFFFF),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
-            )),
+        SearchButton(
+          pressAction: () {},
+        )
       ],
     );
   }
@@ -143,17 +138,11 @@ class RecordSearch extends StatelessWidget {
                 ),
         ),
         const SizedBox(
-          height: 30,
+          height: 80,
         ),
-        OutlinedButton(
-            onPressed: () {},
-            child: const Text(
-              'Go',
-              style: TextStyle(
-                  color: Color(0xffFFFFFF),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
-            )),
+        SearchButton(
+          pressAction: () {},
+        )
       ],
     );
   }
