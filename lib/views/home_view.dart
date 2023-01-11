@@ -51,7 +51,19 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
                 maxLines: null,
                 minLines: null,
               ),
-            )
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            OutlinedButton(
+                onPressed: () {},
+                child: const Text(
+                  'Go',
+                  style: TextStyle(
+                      color: Color(0xffFFFFFF),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                )),
           ],
         ))),
       ),
@@ -117,6 +129,18 @@ class RecordSearch extends StatelessWidget {
                   pressAction: () => controller.recordSpeech(),
                 ),
         ),
+        const SizedBox(
+          height: 30,
+        ),
+        OutlinedButton(
+            onPressed: () {},
+            child: const Text(
+              'Go',
+              style: TextStyle(
+                  color: Color(0xffFFFFFF),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            )),
       ],
     );
   }
