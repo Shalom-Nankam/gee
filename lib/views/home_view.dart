@@ -31,7 +31,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
         padding: const EdgeInsets.only(bottom: 30),
         child: FloatingActionButton.extended(
           backgroundColor: const Color(0xff000000),
-          onPressed: () {},
+          onPressed: () => controller.useSearchBox(),
           label: controller.typeSearch
               ? const Icon(
                   Icons.mic,
