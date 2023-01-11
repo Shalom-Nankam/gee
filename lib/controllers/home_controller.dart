@@ -14,6 +14,7 @@ class HomeController extends State<HomeScreen> {
   SpeechToText userSpeech = SpeechToText();
   bool speechToTextIsEnabled = false;
   bool isRecordingSpeech = false;
+  bool typeSearch = false;
   String convertedSPeechToText = '';
   String recordInstruction = 'Tap the button to begin recording';
   String stopRecordInstruction = 'Tap the button when done speaking';
@@ -45,19 +46,11 @@ class HomeController extends State<HomeScreen> {
     });
   }
 
-  // void startRecord() {
-  //   recordSpeech();
-  //   setState(() {
-  //     isRecordingSpeech = true;
-  //   });
-  // }
-
-  // void stopRecord() {
-  //   stopRecordingSpeech();
-  //   setState(() {
-  //     isRecordingSpeech = false;
-  //   });
-  // }
+  useSearchBox() {
+    setState(() {
+      typeSearch = !typeSearch;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
