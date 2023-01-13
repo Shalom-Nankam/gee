@@ -33,6 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.2.16
+  shared_preferences: ^2.0.15
   speech_to_text: ^6.1.1
 
 dev_dependencies:

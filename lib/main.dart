@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(useMaterial3: true),
         darkTheme: ThemeData(useMaterial3: true),
-        title: 'Material App',
+        title: 'Gee App',
         home: const HomeScreen());
   }
 }
