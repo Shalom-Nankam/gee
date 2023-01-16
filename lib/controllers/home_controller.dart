@@ -52,6 +52,8 @@ class HomeController extends State<HomeScreen> {
     });
   }
 
+  makeSearch() async {}
+
   @override
   Widget build(BuildContext context) {
     return HomeView(this);
