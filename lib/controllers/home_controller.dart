@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeController extends State<HomeScreen> {
+  final themeManager = Get.put(AppTheme());
   SpeechToText userSpeech = SpeechToText();
   bool speechToTextIsEnabled = false;
   bool isRecordingSpeech = false;

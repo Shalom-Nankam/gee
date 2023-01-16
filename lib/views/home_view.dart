@@ -3,6 +3,7 @@ import 'package:gee/controllers/home_controller.dart';
 import 'package:gee/models/app_theme.dart';
 import 'package:gee/views/statelessview.dart';
 import 'package:gee/widgets/search_button.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../widgets/record_speech_button.dart';
 
@@ -60,46 +61,48 @@ class TypeSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 70,
-        ),
-        Text('Type your search text in the box below',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: AppTheme.darkMode.value
-                    ? const Color(0xffffffff)
-                    : const Color(0xff000000))),
-        const SizedBox(
-          height: 20,
-        ),
-        Container(
-          padding: const EdgeInsets.all(16),
-          width: double.infinity,
-          height: 300,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.fromBorderSide(BorderSide(
+    return Obx(
+      () => Column(
+        children: [
+          const SizedBox(
+            height: 70,
+          ),
+          Text('Type your search text in the box below',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                   color: AppTheme.darkMode.value
                       ? const Color(0xffffffff)
-                      : const Color(0xff000000)))),
-          child: const TextField(
-            decoration: InputDecoration(border: InputBorder.none),
-            expands: true,
-            maxLines: null,
-            minLines: null,
+                      : const Color(0xff000000))),
+          const SizedBox(
+            height: 20,
           ),
-        ),
-        const SizedBox(
-          height: 80,
-        ),
-        SearchButton(
-          pressAction: () {},
-        )
-      ],
+          Container(
+            padding: const EdgeInsets.all(16),
+            width: double.infinity,
+            height: 300,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.fromBorderSide(BorderSide(
+                    color: AppTheme.darkMode.value
+                        ? const Color(0xffffffff)
+                        : const Color(0xff000000)))),
+            child: const TextField(
+              decoration: InputDecoration(border: InputBorder.none),
+              expands: true,
+              maxLines: null,
+              minLines: null,
+            ),
+          ),
+          const SizedBox(
+            height: 80,
+          ),
+          SearchButton(
+            pressAction: () {},
+          )
+        ],
+      ),
     );
   }
 }
@@ -114,45 +117,47 @@ class RecordSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 70,
-        ),
-        Text(
-            controller.userSpeech.isListening
-                ? controller.stopRecordInstruction
-                : controller.recordInstruction,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: AppTheme.darkMode.value
-                    ? const Color(0xffffffff)
-                    : const Color(0xff000000))),
-        const SizedBox(
-          height: 40,
-        ),
-        SizedBox(
-          height: 200,
-          width: 300,
-          child: controller.userSpeech.isListening
-              ? RecordSpeechButton(
-                  toRecord: false,
-                  pressAction: () => controller.stopRecordingSpeech(),
-                )
-              : RecordSpeechButton(
-                  toRecord: true,
-                  pressAction: () => controller.recordSpeech(),
-                ),
-        ),
-        const SizedBox(
-          height: 80,
-        ),
-        SearchButton(
-          pressAction: () {},
-        )
-      ],
+    return Obx(
+      () => Column(
+        children: [
+          const SizedBox(
+            height: 70,
+          ),
+          Text(
+              controller.userSpeech.isListening
+                  ? controller.stopRecordInstruction
+                  : controller.recordInstruction,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: AppTheme.darkMode.value
+                      ? const Color(0xffffffff)
+                      : const Color(0xff000000))),
+          const SizedBox(
+            height: 40,
+          ),
+          SizedBox(
+            height: 200,
+            width: 300,
+            child: controller.userSpeech.isListening
+                ? RecordSpeechButton(
+                    toRecord: false,
+                    pressAction: () => controller.stopRecordingSpeech(),
+                  )
+                : RecordSpeechButton(
+                    toRecord: true,
+                    pressAction: () => controller.recordSpeech(),
+                  ),
+          ),
+          const SizedBox(
+            height: 80,
+          ),
+          SearchButton(
+            pressAction: () {},
+          )
+        ],
+      ),
     );
   }
 }

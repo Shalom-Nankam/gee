@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: AppTheme.setAppTheme(),
         darkTheme: AppTheme.setAppTheme(),
+        themeMode: AppTheme.darkMode.value ? ThemeMode.dark : ThemeMode.light,
         title: 'Gee App',
         home: const HomeScreen());
   }

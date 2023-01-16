@@ -15,6 +15,12 @@ class AppTheme extends GetxController {
     return ThemeData(
         outlinedButtonTheme: OutlinedButtonThemeData(
             style: ButtonStyle(
+                side: MaterialStatePropertyAll(BorderSide(
+                  width: 2.0,
+                  color: AppTheme.darkMode.value
+                      ? const Color(0xffffffff)
+                      : const Color(0xff000000),
+                )),
                 backgroundColor: darkMode.value
                     ? const MaterialStatePropertyAll(Color(0xff000000))
                     : const MaterialStatePropertyAll(Color(0xffffffff)))),
