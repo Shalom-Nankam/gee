@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:gee/controllers/home_controller.dart';
+import 'package:gee/models/app_theme.dart';
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,10 +23,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(useMaterial3: true),
-        darkTheme: ThemeData(useMaterial3: true),
+        theme: AppTheme.setAppTheme(),
+        darkTheme: AppTheme.setAppTheme(),
         title: 'Gee App',
         home: const HomeScreen());
   }

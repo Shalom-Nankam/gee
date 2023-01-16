@@ -11,6 +11,7 @@ class AppTheme {
   static ThemeData setAppTheme() {
     AppTheme.getTheme();
     return ThemeData(
+        useMaterial3: true,
         iconTheme: IconThemeData(
             color: darkMode ? const Color(0xff000000) : const Color(0xffffffff),
             size: 50),
