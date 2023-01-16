@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gee/models/app_theme.dart';
 import 'package:gee/views/home_view.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
@@ -52,7 +55,11 @@ class HomeController extends State<HomeScreen> {
     });
   }
 
-  makeSearch() async {}
+  changeTheme(bool darkTheme) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool('Theme', !AppTheme.darkMode);
+    Get.changeTheme(darkTheme ? ThemeData.light() : ThemeData.dark());
+  }
 
   @override
   Widget build(BuildContext context) {

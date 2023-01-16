@@ -18,7 +18,9 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
           // style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.wb_sunny))
+          IconButton(
+              onPressed: () => controller.changeTheme(AppTheme.darkMode),
+              icon: const Icon(Icons.wb_sunny))
         ],
       ),
       body: Padding(
