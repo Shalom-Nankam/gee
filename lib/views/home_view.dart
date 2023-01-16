@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gee/controllers/home_controller.dart';
+import 'package:gee/models/app_theme.dart';
 import 'package:gee/views/statelessview.dart';
 import 'package:gee/widgets/search_button.dart';
 
@@ -14,7 +15,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
       appBar: AppBar(
         title: const Text(
           'Gee AI',
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          // style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.wb_sunny))
@@ -31,7 +32,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 30),
         child: FloatingActionButton.extended(
-          backgroundColor: const Color(0xff000000),
+          // backgroundColor: const Color(0xff000000),
           onPressed: () => controller.useSearchBox(),
           label: controller.typeSearch
               ? const Icon(
@@ -62,12 +63,14 @@ class TypeSearch extends StatelessWidget {
         const SizedBox(
           height: 70,
         ),
-        const Text('Type your search text in the box below',
+        Text('Type your search text in the box below',
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Color(0xff000000))),
+                color: AppTheme.darkMode
+                    ? const Color(0xff000000)
+                    : const Color(0xffffffff))),
         const SizedBox(
           height: 20,
         ),
@@ -77,8 +80,10 @@ class TypeSearch extends StatelessWidget {
           height: 300,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              border: const Border.fromBorderSide(
-                  BorderSide(color: Color(0xff000000)))),
+              border: Border.fromBorderSide(BorderSide(
+                  color: AppTheme.darkMode
+                      ? const Color(0xff000000)
+                      : const Color(0xffffffff)))),
           child: const TextField(
             decoration: InputDecoration(border: InputBorder.none),
             expands: true,
@@ -117,10 +122,12 @@ class RecordSearch extends StatelessWidget {
                 ? controller.stopRecordInstruction
                 : controller.recordInstruction,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Color(0xff000000))),
+                color: AppTheme.darkMode
+                    ? const Color(0xff000000)
+                    : const Color(0xffffffff))),
         const SizedBox(
           height: 40,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gee/models/app_theme.dart';
 
 class RecordSpeechButton extends StatelessWidget {
   const RecordSpeechButton(
@@ -14,7 +15,11 @@ class RecordSpeechButton extends StatelessWidget {
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          border: Border.all(color: const Color(0xff000000), width: 2)),
+          border: Border.all(
+              color: AppTheme.darkMode
+                  ? const Color(0xff000000)
+                  : const Color(0xffffffff),
+              width: 2)),
       child: IconButton(
           onPressed: pressAction,
           icon: toRecord

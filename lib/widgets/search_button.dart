@@ -10,9 +10,9 @@ class SearchButton extends StatelessWidget {
       height: 50,
       width: 200,
       child: OutlinedButton(
-          style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(const Color(0xff000000))),
+          // style: ButtonStyle(
+          //     backgroundColor:
+          //         MaterialStateProperty.all(const Color(0xff000000))),
           onPressed: pressAction,
           child: const Text(
             'Go',

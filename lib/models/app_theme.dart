@@ -11,6 +11,11 @@ class AppTheme {
   static ThemeData setAppTheme() {
     AppTheme.getTheme();
     return ThemeData(
+        outlinedButtonTheme: OutlinedButtonThemeData(
+            style: ButtonStyle(
+                backgroundColor: darkMode
+                    ? const MaterialStatePropertyAll(Color(0xff000000))
+                    : const MaterialStatePropertyAll(Color(0xffffffff)))),
         useMaterial3: true,
         iconTheme: IconThemeData(
             color: darkMode ? const Color(0xff000000) : const Color(0xffffffff),
