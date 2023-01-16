@@ -69,8 +69,8 @@ class TypeSearch extends StatelessWidget {
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: AppTheme.darkMode
-                    ? const Color(0xff000000)
-                    : const Color(0xffffffff))),
+                    ? const Color(0xffffffff)
+                    : const Color(0xff000000))),
         const SizedBox(
           height: 20,
         ),
@@ -82,8 +82,8 @@ class TypeSearch extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               border: Border.fromBorderSide(BorderSide(
                   color: AppTheme.darkMode
-                      ? const Color(0xff000000)
-                      : const Color(0xffffffff)))),
+                      ? const Color(0xffffffff)
+                      : const Color(0xff000000)))),
           child: const TextField(
             decoration: InputDecoration(border: InputBorder.none),
             expands: true,
@@ -126,8 +126,8 @@ class RecordSearch extends StatelessWidget {
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: AppTheme.darkMode
-                    ? const Color(0xff000000)
-                    : const Color(0xffffffff))),
+                    ? const Color(0xffffffff)
+                    : const Color(0xff000000))),
         const SizedBox(
           height: 40,
         ),

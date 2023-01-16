@@ -18,7 +18,7 @@ class AppTheme {
                     : const MaterialStatePropertyAll(Color(0xffffffff)))),
         useMaterial3: true,
         iconTheme: IconThemeData(
-            color: darkMode ? const Color(0xff000000) : const Color(0xffffffff),
+            color: darkMode ? const Color(0xffffffff) : const Color(0xff000000),
             size: 50),
         scaffoldBackgroundColor:
             darkMode ? const Color(0xff000000) : const Color(0xffffffff),
@@ -29,16 +29,16 @@ class AppTheme {
             centerTitle: true,
             iconTheme: IconThemeData(
                 color: darkMode
-                    ? const Color(0xff000000)
-                    : const Color(0xffffffff),
+                    ? const Color(0xffffffff)
+                    : const Color(0xff000000),
                 size: 30)),
         textTheme: TextTheme(
             button: TextStyle(
-          color: darkMode ? const Color(0xff000000) : const Color(0xffffffff),
+          color: darkMode ? const Color(0xffffffff) : const Color(0xff000000),
         )),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor:
-              darkMode ? const Color(0xff000000) : const Color(0xffffffff),
+              darkMode ? const Color(0xffffffff) : const Color(0xff000000),
         ));
   }
 }

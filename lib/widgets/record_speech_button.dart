@@ -17,8 +17,8 @@ class RecordSpeechButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
           border: Border.all(
               color: AppTheme.darkMode
-                  ? const Color(0xff000000)
-                  : const Color(0xffffffff),
+                  ? const Color(0xffffffff)
+                  : const Color(0xff000000),
               width: 2)),
       child: IconButton(
           onPressed: pressAction,

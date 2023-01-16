@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/app_theme.dart';
+
 class SearchButton extends StatelessWidget {
   const SearchButton({super.key, required this.pressAction});
   final VoidCallback pressAction;
@@ -14,10 +16,12 @@ class SearchButton extends StatelessWidget {
           //     backgroundColor:
           //         MaterialStateProperty.all(const Color(0xff000000))),
           onPressed: pressAction,
-          child: const Text(
+          child: Text(
             'Go',
             style: TextStyle(
-                color: Color(0xffFFFFFF),
+                color: AppTheme.darkMode
+                    ? const Color(0xffffffff)
+                    : const Color(0xff000000),
                 fontWeight: FontWeight.bold,
                 fontSize: 20),
           )),
