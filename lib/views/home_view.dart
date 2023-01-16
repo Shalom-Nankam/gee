@@ -19,7 +19,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
         ),
         actions: [
           IconButton(
-              onPressed: () => controller.changeTheme(AppTheme.darkMode),
+              onPressed: () => controller.changeTheme(AppTheme.darkMode.value),
               icon: const Icon(Icons.wb_sunny))
         ],
       ),
@@ -70,7 +70,7 @@ class TypeSearch extends StatelessWidget {
             style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.darkMode
+                color: AppTheme.darkMode.value
                     ? const Color(0xffffffff)
                     : const Color(0xff000000))),
         const SizedBox(
@@ -83,7 +83,7 @@ class TypeSearch extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border.fromBorderSide(BorderSide(
-                  color: AppTheme.darkMode
+                  color: AppTheme.darkMode.value
                       ? const Color(0xffffffff)
                       : const Color(0xff000000)))),
           child: const TextField(
@@ -127,7 +127,7 @@ class RecordSearch extends StatelessWidget {
             style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.darkMode
+                color: AppTheme.darkMode.value
                     ? const Color(0xffffffff)
                     : const Color(0xff000000))),
         const SizedBox(

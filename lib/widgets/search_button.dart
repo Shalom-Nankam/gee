@@ -19,7 +19,7 @@ class SearchButton extends StatelessWidget {
           child: Text(
             'Go',
             style: TextStyle(
-                color: AppTheme.darkMode
+                color: AppTheme.darkMode.value
                     ? const Color(0xffffffff)
                     : const Color(0xff000000),
                 fontWeight: FontWeight.bold,

@@ -57,7 +57,8 @@ class HomeController extends State<HomeScreen> {
 
   changeTheme(bool darkTheme) async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool('Theme', !AppTheme.darkMode);
+    prefs.setBool('Theme', !AppTheme.darkMode.value);
+    AppTheme.getTheme();
     Get.changeTheme(darkTheme ? ThemeData.light() : ThemeData.dark());
   }
 
