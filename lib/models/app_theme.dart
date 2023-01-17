@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppTheme extends GetxController {
   static var darkMode = false.obs;
-  dynamic get isDark => darkMode;
   static getTheme() async {
     final prefs = await SharedPreferences.getInstance();
     darkMode(prefs.getBool('Theme') ?? false);

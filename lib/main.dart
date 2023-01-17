@@ -11,7 +11,7 @@ void main() async {
   AppTheme.getTheme();
   initialization();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 initialization() {
@@ -20,9 +20,7 @@ initialization() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  final themeManager = Get.put(AppTheme());
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

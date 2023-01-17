@@ -16,7 +16,6 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
       appBar: AppBar(
         title: const Text(
           'Gee AI',
-          // style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         actions: [
           Obx(
