@@ -60,7 +60,7 @@ class HomeController extends State<HomeScreen> {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool('Theme', !AppTheme.darkMode.value);
     AppTheme.getTheme();
-    Get.changeTheme(darkTheme ? ThemeData.light() : ThemeData.dark());
+    // Get.changeTheme(darkTheme ? ThemeData.light() : ThemeData.dark());
   }
 
   @override

@@ -19,9 +19,14 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
           // style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         actions: [
-          IconButton(
-              onPressed: () => controller.changeTheme(AppTheme.darkMode.value),
-              icon: const Icon(Icons.wb_sunny))
+          Obx(
+            () => IconButton(
+                onPressed: () =>
+                    controller.changeTheme(AppTheme.darkMode.value),
+                icon: AppTheme.darkMode.value
+                    ? const Icon(Icons.wb_sunny)
+                    : const Icon(Icons.dark_mode_outlined)),
+          )
         ],
       ),
       body: Padding(
@@ -34,18 +39,26 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 30),
-        child: FloatingActionButton.extended(
-          // backgroundColor: const Color(0xff000000),
-          onPressed: () => controller.useSearchBox(),
-          label: controller.typeSearch
-              ? const Icon(
-                  Icons.mic,
-                  size: 30,
-                )
-              : const Icon(
-                  Icons.edit_note,
-                  size: 30,
-                ),
+        child: Obx(
+          () => FloatingActionButton.extended(
+            // backgroundColor: const Color(0xff000000),
+            onPressed: () => controller.useSearchBox(),
+            label: controller.typeSearch
+                ? Icon(
+                    Icons.mic,
+                    size: 30,
+                    color: AppTheme.darkMode.value
+                        ? const Color(0xff000000)
+                        : const Color(0xffffffff),
+                  )
+                : Icon(
+                    Icons.edit_note,
+                    size: 30,
+                    color: AppTheme.darkMode.value
+                        ? const Color(0xff000000)
+                        : const Color(0xffffffff),
+                  ),
+          ),
         ),
       ),
       floatingActionButtonLocation:

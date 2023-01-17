@@ -11,7 +11,7 @@ void main() async {
   AppTheme.getTheme();
   initialization();
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 initialization() {
@@ -20,16 +20,20 @@ initialization() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final themeManager = Get.put(AppTheme());
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.setAppTheme(),
-        darkTheme: AppTheme.setAppTheme(),
-        themeMode: AppTheme.darkMode.value ? ThemeMode.dark : ThemeMode.light,
-        title: 'Gee App',
-        home: const HomeScreen());
+    return Obx(
+      () => GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.setAppTheme(),
+          darkTheme: AppTheme.setAppTheme(),
+          themeMode: AppTheme.darkMode.value ? ThemeMode.dark : ThemeMode.light,
+          title: 'Gee App',
+          home: const HomeScreen()),
+    );
   }
 }
