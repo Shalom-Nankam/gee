@@ -58,6 +58,7 @@ class HomeController extends State<HomeScreen> {
   }
 
   useSearchBox() {
+    clearController();
     setState(() {
       typeSearch = !typeSearch;
     });
@@ -73,7 +74,7 @@ class HomeController extends State<HomeScreen> {
     Completion response = await searchManager.makeSearch(searchQuery);
     print(response.choices);
     Get.to(ResponsePage(
-      query: convertedSPeechToText,
+      query: typeSearch ? typedSearch.text : convertedSPeechToText,
       responses: response.choices!,
     ));
   }
