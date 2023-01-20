@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gee/models/app_theme.dart';
 import 'package:gee/state_management/search_request.dart';
 import 'package:gee/views/home_view.dart';
+import 'package:gee/views/response_page.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
@@ -69,6 +70,10 @@ class HomeController extends State<HomeScreen> {
   makeSearch() async {
     Completion response = await searchManager.makeSearch(convertedSPeechToText);
     print(response.choices);
+    Get.to(ResponsePage(
+      query: convertedSPeechToText,
+      responses: response.choices!,
+    ));
   }
 
   @override
