@@ -79,6 +79,16 @@ class HomeController extends State<HomeScreen> {
   }
 
   @override
+  void dispose() {
+    typedSearch.dispose();
+    super.dispose();
+  }
+
+  clearController() {
+    typedSearch.clear();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return HomeView(this);
   }

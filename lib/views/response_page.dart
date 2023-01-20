@@ -38,6 +38,13 @@ class ResponsePage extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
+                    Text(
+                      responses != null ? responses![0].text! : '',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      ),
+                    ),
                   ],
                 )),
         )),
