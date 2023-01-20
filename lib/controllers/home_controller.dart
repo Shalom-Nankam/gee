@@ -1,5 +1,7 @@
+import 'package:chat_gpt_api/app/model/models.dart';
 import 'package:flutter/material.dart';
 import 'package:gee/models/app_theme.dart';
+import 'package:gee/state_management/search_request.dart';
 import 'package:gee/views/home_view.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,6 +17,8 @@ class HomeScreen extends StatefulWidget {
 
 class HomeController extends State<HomeScreen> {
   final themeManager = Get.put(AppTheme());
+  final searchManager = Get.put(SearchRequest());
+
   SpeechToText userSpeech = SpeechToText();
   bool speechToTextIsEnabled = false;
   bool isRecordingSpeech = false;
@@ -60,6 +64,11 @@ class HomeController extends State<HomeScreen> {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool('Theme', !AppTheme.darkMode.value);
     AppTheme.getTheme();
+  }
+
+  makeSearch() async {
+    Completion response = await searchManager.makeSearch(convertedSPeechToText);
+    print(response.choices);
   }
 
   @override
