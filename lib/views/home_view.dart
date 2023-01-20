@@ -34,7 +34,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
             child: SingleChildScrollView(
                 child: controller.typeSearch
                     ? TypeSearch(
-                        control: controller.typedSearch,
+                        control: controller,
                       )
                     : RecordSearch(controller: controller))),
       ),
@@ -74,7 +74,7 @@ class TypeSearch extends StatelessWidget {
     required this.control,
   }) : super(key: key);
 
-  final TextEditingController control;
+  final HomeController control;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +106,7 @@ class TypeSearch extends StatelessWidget {
                         ? const Color(0xffffffff)
                         : const Color(0xff000000)))),
             child: TextField(
-              controller: control,
+              controller: control.typedSearch,
               decoration: const InputDecoration(border: InputBorder.none),
               expands: true,
               maxLines: null,
@@ -117,7 +117,7 @@ class TypeSearch extends StatelessWidget {
             height: 80,
           ),
           SearchButton(
-            pressAction: () {},
+            pressAction: () => control.makeSearch(control.typedSearch.text),
           )
         ],
       ),
@@ -172,7 +172,8 @@ class RecordSearch extends StatelessWidget {
             height: 80,
           ),
           SearchButton(
-            pressAction: () {},
+            pressAction: () =>
+                controller.makeSearch(controller.convertedSPeechToText),
           )
         ],
       ),
