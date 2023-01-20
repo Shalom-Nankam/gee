@@ -20,6 +20,8 @@ class HomeController extends State<HomeScreen> {
   final themeManager = Get.put(AppTheme());
   final searchManager = Get.put(SearchRequest());
 
+  TextEditingController typedSearch = TextEditingController();
+
   SpeechToText userSpeech = SpeechToText();
   bool speechToTextIsEnabled = false;
   bool isRecordingSpeech = false;
@@ -67,8 +69,8 @@ class HomeController extends State<HomeScreen> {
     AppTheme.getTheme();
   }
 
-  makeSearch() async {
-    Completion response = await searchManager.makeSearch(convertedSPeechToText);
+  makeSearch(String searchQuery) async {
+    Completion response = await searchManager.makeSearch(searchQuery);
     print(response.choices);
     Get.to(ResponsePage(
       query: convertedSPeechToText,

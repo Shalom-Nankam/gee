@@ -33,7 +33,9 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
         child: SafeArea(
             child: SingleChildScrollView(
                 child: controller.typeSearch
-                    ? const TypeSearch()
+                    ? TypeSearch(
+                        control: controller.typedSearch,
+                      )
                     : RecordSearch(controller: controller))),
       ),
       floatingActionButton: Padding(
@@ -69,7 +71,10 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
 class TypeSearch extends StatelessWidget {
   const TypeSearch({
     Key? key,
+    required this.control,
   }) : super(key: key);
+
+  final TextEditingController control;
 
   @override
   Widget build(BuildContext context) {
@@ -100,8 +105,9 @@ class TypeSearch extends StatelessWidget {
                     color: AppTheme.darkMode.value
                         ? const Color(0xffffffff)
                         : const Color(0xff000000)))),
-            child: const TextField(
-              decoration: InputDecoration(border: InputBorder.none),
+            child: TextField(
+              controller: control,
+              decoration: const InputDecoration(border: InputBorder.none),
               expands: true,
               maxLines: null,
               minLines: null,
