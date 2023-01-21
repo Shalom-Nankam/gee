@@ -72,11 +72,10 @@ class HomeController extends State<HomeScreen> {
 
   makeSearch(String searchQuery) async {
     Completion response = await searchManager.makeSearch(searchQuery);
-    print(response.choices);
-    Get.to(ResponsePage(
-      query: typeSearch ? typedSearch.text : convertedSPeechToText,
-      responses: response.choices!,
-    ));
+    Get.to(() => ResponsePage(
+          query: typeSearch ? typedSearch.text : convertedSPeechToText,
+          responses: response.choices!,
+        ));
   }
 
   @override
