@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:gee/models/app_theme.dart';
 import 'package:gee/state_management/search_request.dart';
 import 'package:gee/views/home_view.dart';
-import 'package:gee/views/response_page.dart';
+import 'package:gee/views/typed_response_page.dart';
+import 'package:gee/views/voice_response_page.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
@@ -21,7 +22,6 @@ class HomeController extends State<HomeScreen> {
   final searchManager = Get.put(SearchRequest());
 
   TextEditingController typedSearch = TextEditingController();
-  late TextEditingController recordedSpeechToText;
 
   SpeechToText userSpeech = SpeechToText();
   bool speechToTextIsEnabled = false;
@@ -34,7 +34,7 @@ class HomeController extends State<HomeScreen> {
   @override
   void initState() {
     initializeSPeechToText();
-    recordedSpeechToText = TextEditingController(text: convertedSPeechToText);
+
     super.initState();
   }
 
@@ -75,22 +75,26 @@ class HomeController extends State<HomeScreen> {
 
   makeSearch(String searchQuery) async {
     Completion response = await searchManager.makeSearch(searchQuery);
-    Get.to(() => ResponsePage(
-          query: typeSearch ? typedSearch.text : convertedSPeechToText,
-          responses: response.choices!,
-        ));
+    stopRecordingSpeech();
+    if (typeSearch) {
+      Get.to(() => TypedResponsePage(
+            query: typeSearch ? typedSearch.text : convertedSPeechToText,
+            responses: response.choices!,
+          ));
+    } else {
+      Get.to(() => VoiceResponsePage(inputText: response.choices![0].text!));
+    }
   }
 
   @override
   void dispose() {
     typedSearch.dispose();
-    recordedSpeechToText.dispose();
+
     super.dispose();
   }
 
   clearController() {
     typedSearch.clear();
-    recordedSpeechToText.clear();
   }
 
   @override

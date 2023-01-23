@@ -91,11 +91,13 @@ class TypeSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => control.searchManager.isSearching.value
-          ? Column(
-              children: const [
-                Center(child: CircularProgressIndicator()),
-              ],
-            )
+          ? const Center(child: CircularProgressIndicator())
+          // Column(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: const [
+          //       Center(child: CircularProgressIndicator()),
+          //     ],
+          //   )
           : Column(
               children: [
                 const SizedBox(
@@ -155,11 +157,13 @@ class RecordSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => controller.searchManager.isSearching.value
-          ? Column(
-              children: const [
-                Center(child: CircularProgressIndicator()),
-              ],
-            )
+          ? const Center(child: CircularProgressIndicator())
+          // Column(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: const [
+          //       Center(child: CircularProgressIndicator()),
+          //     ],
+          //   )
           : Column(
               children: [
                 const SizedBox(
