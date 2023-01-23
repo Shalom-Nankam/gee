@@ -21,6 +21,7 @@ class HomeController extends State<HomeScreen> {
   final searchManager = Get.put(SearchRequest());
 
   TextEditingController typedSearch = TextEditingController();
+  late TextEditingController recordedSpeechToText;
 
   SpeechToText userSpeech = SpeechToText();
   bool speechToTextIsEnabled = false;
@@ -33,6 +34,7 @@ class HomeController extends State<HomeScreen> {
   @override
   void initState() {
     initializeSPeechToText();
+    recordedSpeechToText = TextEditingController(text: convertedSPeechToText);
     super.initState();
   }
 
@@ -81,11 +83,13 @@ class HomeController extends State<HomeScreen> {
   @override
   void dispose() {
     typedSearch.dispose();
+    recordedSpeechToText.dispose();
     super.dispose();
   }
 
   clearController() {
     typedSearch.clear();
+    recordedSpeechToText.clear();
   }
 
   @override

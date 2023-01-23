@@ -180,13 +180,14 @@ class RecordSearch extends StatelessWidget {
                   height: 20,
                 ),
                 if (controller.userSpeech.isListening)
-                  const SizedBox(
+                  SizedBox(
                     height: 200,
                     child: TextField(
+                      controller: controller.recordedSpeechToText,
                       expands: true,
                       maxLines: null,
                       minLines: null,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: InputBorder.none,
                       ),
                     ),
