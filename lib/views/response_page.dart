@@ -23,30 +23,28 @@ class ResponsePage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: SafeArea(
             child: SingleChildScrollView(
-          child: Obx(() => searchManager.isSearching.value
-              ? const CircularProgressIndicator()
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      query,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      responses != null ? responses![0].text! : '',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 201,
-                      ),
-                    ),
-                  ],
-                )),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                query,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                responses != null ? responses![0].text! : '',
+                style: const TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 201,
+                ),
+              ),
+            ],
+          ),
         )),
       ),
     );

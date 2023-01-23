@@ -163,7 +163,7 @@ class RecordSearch extends StatelessWidget {
           : Column(
               children: [
                 const SizedBox(
-                  height: 70,
+                  height: 10,
                 ),
                 Text(
                     controller.userSpeech.isListening
@@ -177,7 +177,7 @@ class RecordSearch extends StatelessWidget {
                             ? const Color(0xffffffff)
                             : const Color(0xff000000))),
                 const SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 SizedBox(
                   height: 200,
