@@ -54,6 +54,7 @@ class HomeController extends State<HomeScreen> {
   }
 
   void speechResult(SpeechRecognitionResult result) {
+    searchManager.searchQuery(result.recognizedWords);
     setState(() {
       convertedSPeechToText = result.recognizedWords;
     });

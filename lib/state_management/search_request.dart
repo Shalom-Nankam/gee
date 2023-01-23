@@ -18,4 +18,5 @@ class SearchRequest extends GetxController {
   }
 
   var isSearching = false.obs;
+  var searchQuery = ''.obs;
 }

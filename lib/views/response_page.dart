@@ -40,7 +40,7 @@ class ResponsePage extends StatelessWidget {
                 responses != null ? responses![0].text! : '',
                 style: const TextStyle(
                   fontWeight: FontWeight.normal,
-                  fontSize: 201,
+                  fontSize: 20,
                 ),
               ),
             ],
