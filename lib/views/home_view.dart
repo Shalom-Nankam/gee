@@ -179,9 +179,21 @@ class RecordSearch extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
+                if (controller.userSpeech.isListening)
+                  const SizedBox(
+                    height: 200,
+                    child: TextField(
+                      expands: true,
+                      maxLines: null,
+                      minLines: null,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
                 SizedBox(
                   height: 200,
-                  width: 300,
+                  width: 200,
                   child: controller.userSpeech.isListening
                       ? RecordSpeechButton(
                           toRecord: false,
