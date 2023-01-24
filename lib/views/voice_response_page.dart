@@ -48,13 +48,31 @@ class _VoiceResponsePageState extends State<VoiceResponsePage> {
         child: SafeArea(
             child: Column(
           children: [
+            Text(
+              widget.inputText,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
+            ),
             const SizedBox(
               height: 30,
             ),
             FutureBuilder(
               future: searchResponse,
               builder: (context, snapshot) {
-                if (snapshot.hasData) {}
+                if (snapshot.hasData) {
+                  Text(
+                    snapshot.data!.choices != null
+                        ? snapshot.data!.choices![0].text!
+                        : '',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 20,
+                    ),
+                  );
+                  textToSpeech.speak(snapshot.data!.choices![0].text!);
+                }
                 return const CircularProgressIndicator();
               },
             )
