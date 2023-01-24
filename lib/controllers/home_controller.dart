@@ -1,4 +1,3 @@
-import 'package:chat_gpt_api/app/model/models.dart';
 import 'package:flutter/material.dart';
 import 'package:gee/models/app_theme.dart';
 import 'package:gee/state_management/search_request.dart';
@@ -74,14 +73,13 @@ class HomeController extends State<HomeScreen> {
   }
 
   makeSearch(String searchQuery) async {
-    Completion response = await searchManager.makeSearch(searchQuery);
     stopRecordingSpeech();
     if (typeSearch) {
       Get.to(() => TypedResponsePage(
-            query: typeSearch ? typedSearch.text : convertedSPeechToText,
+            query: typedSearch.text,
           ));
     } else {
-      Get.to(() => VoiceResponsePage(inputText: response.choices![0].text!));
+      Get.to(() => VoiceResponsePage(inputText: convertedSPeechToText));
     }
   }
 

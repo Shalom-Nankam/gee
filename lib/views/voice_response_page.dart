@@ -1,4 +1,6 @@
+import 'package:chat_gpt_api/app/model/data_model/completion/completion.dart';
 import 'package:flutter/material.dart';
+import 'package:gee/state_management/search_request.dart';
 import 'package:get/get.dart';
 import 'package:text_to_speech/text_to_speech.dart';
 
@@ -12,10 +14,14 @@ class VoiceResponsePage extends StatefulWidget {
 
 class _VoiceResponsePageState extends State<VoiceResponsePage> {
   late TextToSpeech textToSpeech = TextToSpeech();
+  late Future<Completion> searchResponse;
+
+  final searchManager = Get.put(SearchRequest());
 
   @override
   void initState() {
     // TODO: implement initState
+    searchResponse = searchManager.makeSearch(widget.inputText);
     super.initState();
   }
 
@@ -41,7 +47,18 @@ class _VoiceResponsePageState extends State<VoiceResponsePage> {
         padding: const EdgeInsets.all(10),
         child: SafeArea(
             child: Column(
-          children: const [],
+          children: [
+            const SizedBox(
+              height: 30,
+            ),
+            FutureBuilder(
+              future: searchResponse,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {}
+                return const CircularProgressIndicator();
+              },
+            )
+          ],
         )),
       ),
     );
