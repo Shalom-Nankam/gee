@@ -7,6 +7,8 @@ PODS:
   - speech_to_text (0.0.1):
     - Flutter
     - Try
+  - text_to_speech (0.0.1):
+    - Flutter
   - Try (2.1.1)
 
 DEPENDENCIES:
@@ -14,6 +16,7 @@ DEPENDENCIES:
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
   - speech_to_text (from `.symlinks/plugins/speech_to_text/ios`)
+  - text_to_speech (from `.symlinks/plugins/text_to_speech/ios`)
 
 SPEC REPOS:
   trunk:
@@ -28,12 +31,15 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_ios/ios"
   speech_to_text:
     :path: ".symlinks/plugins/speech_to_text/ios"
+  text_to_speech:
+    :path: ".symlinks/plugins/text_to_speech/ios"
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   speech_to_text: b43a7d99aef037bd758ed8e45d79bbac035d2dfe
+  text_to_speech: 8669facdbd5b72d2939b810493defd991634f6f9
   Try: 5ef669ae832617b3cee58cb2c6f99fb767a4ff96
 
 PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3

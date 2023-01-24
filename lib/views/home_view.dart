@@ -48,27 +48,29 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
                         )
                       : RecordSearch(controller: controller))),
         ),
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 30),
-          child: Obx(
-            () => FloatingActionButton.extended(
-              // backgroundColor: const Color(0xff000000),
-              onPressed: () => controller.useSearchBox(),
-              label: controller.typeSearch
-                  ? Icon(
-                      Icons.mic,
-                      size: 30,
-                      color: AppTheme.darkMode.value
-                          ? const Color(0xff000000)
-                          : const Color(0xffffffff),
-                    )
-                  : Icon(
-                      Icons.edit_note,
-                      size: 30,
-                      color: AppTheme.darkMode.value
-                          ? const Color(0xff000000)
-                          : const Color(0xffffffff),
-                    ),
+        floatingActionButton: Obx(
+          () => Visibility(
+            visible: !controller.searchManager.isSearching.value,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: FloatingActionButton.extended(
+                onPressed: () => controller.useSearchBox(),
+                label: controller.typeSearch
+                    ? Icon(
+                        Icons.mic,
+                        size: 30,
+                        color: AppTheme.darkMode.value
+                            ? const Color(0xff000000)
+                            : const Color(0xffffffff),
+                      )
+                    : Icon(
+                        Icons.edit_note,
+                        size: 30,
+                        color: AppTheme.darkMode.value
+                            ? const Color(0xff000000)
+                            : const Color(0xffffffff),
+                      ),
+              ),
             ),
           ),
         ),

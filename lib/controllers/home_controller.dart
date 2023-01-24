@@ -79,7 +79,6 @@ class HomeController extends State<HomeScreen> {
     if (typeSearch) {
       Get.to(() => TypedResponsePage(
             query: typeSearch ? typedSearch.text : convertedSPeechToText,
-            responses: response.choices!,
           ));
     } else {
       Get.to(() => VoiceResponsePage(inputText: response.choices![0].text!));
