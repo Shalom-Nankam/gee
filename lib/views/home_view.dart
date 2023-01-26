@@ -65,7 +65,12 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 30),
               child: FloatingActionButton.extended(
+                ///Toggle the value of typeSearch in the controller
+                /// to change between type view or record view
                 onPressed: () => controller.useSearchBox(),
+
+                ///Show a note icon when a user is in the record view and
+                ///show a mic when the user is in  the text view
                 label: controller.typeSearch
                     ? Icon(
                         Icons.mic,
@@ -105,12 +110,6 @@ class TypeSearch extends StatelessWidget {
     return Obx(
       () => control.searchManager.isSearching.value
           ? const Center(child: CircularProgressIndicator())
-          // Column(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: const [
-          //       Center(child: CircularProgressIndicator()),
-          //     ],
-          //   )
           : Column(
               children: [
                 const SizedBox(
@@ -171,12 +170,6 @@ class RecordSearch extends StatelessWidget {
     return Obx(
       () => controller.searchManager.isSearching.value
           ? const Center(child: CircularProgressIndicator())
-          // Column(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: const [
-          //       Center(child: CircularProgressIndicator()),
-          //     ],
-          //   )
           : Column(
               children: [
                 const SizedBox(
