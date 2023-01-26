@@ -4,6 +4,7 @@ import 'package:chat_gpt_api/app/model/data_model/completion/completion_request.
 import 'package:gee/api_key.dart';
 import 'package:get/get.dart';
 
+///Manages the state of the app when making a request to ChatGPT
 class SearchRequest extends GetxController {
   final _chatGptClient = ChatGPT.builder(token: ApiKey.apiKey);
 
@@ -17,6 +18,9 @@ class SearchRequest extends GetxController {
     return response!;
   }
 
+  ///Whether the user is currently making a search now or not
   var isSearching = false.obs;
+
+  ///The search text the user is trying to make
   var searchQuery = ''.obs;
 }
