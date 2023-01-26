@@ -47,6 +47,10 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
               child: SingleChildScrollView(
                   keyboardDismissBehavior:
                       ScrollViewKeyboardDismissBehavior.onDrag,
+
+                  ///Watch the controller typeSearch value,
+                  ///if true, return the type view else return the recording
+                  ///view
                   child: controller.typeSearch
                       ? TypeSearch(
                           control: controller,
@@ -54,6 +58,8 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
                       : RecordSearch(controller: controller))),
         ),
         floatingActionButton: Obx(
+          ///Use a visibility widget. Show when a user is not currently
+          ///searching up a query and hide when a user is
           () => Visibility(
             visible: !controller.searchManager.isSearching.value,
             child: Padding(
