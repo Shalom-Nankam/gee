@@ -3,8 +3,13 @@ import 'package:get/get.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+//This class returns the theme decorations for the app and depends on the
+//theme mode
 class AppTheme extends GetxController {
+  ///Whether the app should be in dark mode or not
   static var darkMode = false.obs;
+
+  ///Gets the last user stored theme settings
   static getTheme() async {
     final prefs = await SharedPreferences.getInstance();
     darkMode(prefs.getBool('Theme') ?? false);
@@ -12,6 +17,8 @@ class AppTheme extends GetxController {
 
   static ThemeData setAppTheme() {
     AppTheme.getTheme();
+
+    ///Returns the theme depending on the value of the dark mode variable
     return ThemeData(
       brightness: darkMode.value ? Brightness.dark : Brightness.light,
       outlinedButtonTheme: OutlinedButtonThemeData(
