@@ -9,6 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
+//This class abstracts the home view business logic from the
+//presentation logic
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -23,10 +25,20 @@ class HomeController extends State<HomeScreen> {
   TextEditingController typedSearch = TextEditingController();
 
   SpeechToText userSpeech = SpeechToText();
+
+  ///Whether the speech to text permissions are allowed
   bool speechToTextIsEnabled = false;
+
+  ///Whether a user is currently recording a speech
   bool isRecordingSpeech = false;
+
+  ///Whether the user prefers to type their search query or record it
   bool typeSearch = false;
+
+  ///The user recorded speech converted to string
   String convertedSPeechToText = '';
+
+  ///Instructions to show when the user should begin or stop recording
   String recordInstruction = 'Tap the button to begin recording';
   String stopRecordInstruction = 'Tap the button when done speaking';
 
@@ -74,6 +86,9 @@ class HomeController extends State<HomeScreen> {
 
   makeSearch(String searchQuery) async {
     stopRecordingSpeech();
+
+    ///If the user typed their search, take them to
+    ///the typed response page else take them to the voice response page
     if (typeSearch) {
       Get.to(() => TypedResponsePage(
             query: typedSearch.text,
