@@ -1,16 +1,12 @@
-# gee
+# Gee app
 
-A new Flutter project.
+Flutter and ChatGPT in one app
 
-## Getting Started
+## How it works?
 
-This project is a starting point for a Flutter application.
+The app does a simple task of taking queries and returning responses to these queries as recieved from the unofficial ChatGPT REST  APIs.
 
-A few resources to get you started if this is your first Flutter project:
+Users can either voice record their questions or they can rather type it in
+a search box.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
