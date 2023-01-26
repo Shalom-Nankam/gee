@@ -8,6 +8,8 @@ class SearchButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //button is used to make the search request after a user types or
+    //records their query items
     return SizedBox(
       height: 50,
       width: 200,

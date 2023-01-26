@@ -9,6 +9,7 @@ class RecordSpeechButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Tne button the user presses to begin recording their speech
     return Container(
       height: 150,
       width: 250,
@@ -22,6 +23,9 @@ class RecordSpeechButton extends StatelessWidget {
               width: 2)),
       child: IconButton(
           onPressed: pressAction,
+
+          //show an icon depending on whether the user is currently
+          //making a record or not
           icon: toRecord
               ? const Icon(
                   Icons.mic,
