@@ -13,6 +13,7 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      //For removing the onscreen keyboard on tap of anywhere on the screen
       onTap: () {
         FocusNode currentFocus = FocusScope.of(context);
         if (!currentFocus.hasPrimaryFocus) {
@@ -20,12 +21,16 @@ class HomeView extends StatelessView<HomeScreen, HomeController> {
         }
       },
       child: Scaffold(
+        //To avoid the FAB from moving up whenever the on screnn keyboard
+        //comes up
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: const Text(
             'Gee AI',
           ),
           actions: [
+            //This changes the app theme between dark  and light mode by
+            //watchihng the bool value of dark mode in the AppTheme class
             Obx(
               () => IconButton(
                   onPressed: () =>
