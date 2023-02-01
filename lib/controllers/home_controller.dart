@@ -1,13 +1,15 @@
+import 'package:chat_gpt_api/app/model/data_model/completion/completion.dart';
 import 'package:flutter/material.dart';
 import 'package:gee/models/app_theme.dart';
 import 'package:gee/state_management/search_request.dart';
 import 'package:gee/views/home_view.dart';
-import 'package:gee/views/typed_response_page.dart';
-import 'package:gee/views/voice_response_page.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+
+import '../views/typed_response_page.dart';
+import '../views/voice_response_page.dart';
 
 //This class abstracts the home view business logic from the
 //presentation logic
@@ -87,11 +89,14 @@ class HomeController extends State<HomeScreen> {
   makeSearch(String searchQuery) async {
     stopRecordingSpeech();
 
+    Completion requestResponse = await searchManager.makeSearch(searchQuery);
+
     ///If the user typed their search, take them to
     ///the typed response page else take them to the voice response page
     if (typeSearch) {
       Get.to(() => TypedResponsePage(
-            query: typedSearch.text,
+            query: searchQuery,
+            response: requestResponse.choices![0].text!,
           ));
     } else {
       Get.to(() => VoiceResponsePage(inputText: convertedSPeechToText));

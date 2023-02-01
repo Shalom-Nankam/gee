@@ -189,7 +189,8 @@ class RecordSearch extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                if (controller.userSpeech.isListening)
+                if (controller.userSpeech.isListening ||
+                    controller.searchManager.searchQuery.value.isNotEmpty)
                   SizedBox(
                       height: 200,
                       child: Obx(

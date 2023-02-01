@@ -48,13 +48,14 @@ class _VoiceResponsePageState extends State<VoiceResponsePage> {
         child: SafeArea(
             child: Column(
           children: [
-            Text(
-              widget.inputText,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            if (!searchManager.isSearching.value)
+              Text(
+                widget.inputText,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
               ),
-            ),
             const SizedBox(
               height: 30,
             ),
@@ -62,18 +63,31 @@ class _VoiceResponsePageState extends State<VoiceResponsePage> {
               future: searchResponse,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  Text(
-                    snapshot.data!.choices != null
-                        ? snapshot.data!.choices![0].text!
-                        : '',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 20,
-                    ),
+                  return Column(
+                    children: [
+                      Text(
+                        snapshot.data!.choices != null
+                            ? snapshot.data!.choices![0].text!
+                            : '',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 20,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      IconButton(
+                          onPressed: () => textToSpeech
+                              .speak(snapshot.data!.choices![0].text!),
+                          icon: const Icon(
+                            Icons.play_arrow_outlined,
+                            size: 50,
+                          ))
+                    ],
                   );
-                  textToSpeech.speak(snapshot.data!.choices![0].text!);
                 }
-                return const CircularProgressIndicator();
+                return const Center(child: CircularProgressIndicator());
               },
             )
           ],

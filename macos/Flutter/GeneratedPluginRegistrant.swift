@@ -5,7 +5,7 @@
 import FlutterMacOS
 import Foundation
 
-import shared_preferences_macos
+import shared_preferences_foundation
 import speech_to_text_macos
 import text_to_speech_macos
 
