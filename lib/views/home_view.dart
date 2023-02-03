@@ -227,7 +227,26 @@ class RecordSearch extends StatelessWidget {
                   SearchButton(
                     pressAction: () =>
                         controller.makeSearch(controller.convertedSPeechToText),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  if (controller.searchManager.searchQuery.value.isNotEmpty)
+                    SizedBox(
+                      height: 50,
+                      width: 200,
+                      child: OutlinedButton(
+                          onPressed: () => controller.clearSearch(),
+                          child: Text(
+                            'Clear',
+                            style: TextStyle(
+                                color: AppTheme.darkMode.value
+                                    ? const Color(0xffffffff)
+                                    : const Color(0xff000000),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          )),
+                    )
                 ],
               ),
             ]),

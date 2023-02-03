@@ -73,6 +73,13 @@ class HomeController extends State<HomeScreen> {
     });
   }
 
+  void clearSearch() {
+    searchManager.searchQuery('');
+    setState(() {
+      convertedSPeechToText = '';
+    });
+  }
+
   useSearchBox() {
     clearController();
     setState(() {
