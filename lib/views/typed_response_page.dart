@@ -17,6 +17,7 @@ class TypedResponsePage extends StatelessWidget {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
                   height: 20,
@@ -33,6 +34,7 @@ class TypedResponsePage extends StatelessWidget {
                 ),
                 Text(
                   response,
+                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.normal,

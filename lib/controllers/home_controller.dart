@@ -89,14 +89,14 @@ class HomeController extends State<HomeScreen> {
   makeSearch(String searchQuery) async {
     stopRecordingSpeech();
 
-    Completion requestResponse = await searchManager.makeSearch(searchQuery);
+    Completion? requestResponse = await searchManager.makeSearch(searchQuery);
 
     ///If the user typed their search, take them to
     ///the typed response page else take them to the voice response page
     if (typeSearch) {
       Get.to(() => TypedResponsePage(
             query: searchQuery,
-            response: requestResponse.choices![0].text!,
+            response: requestResponse!.choices![0].text!,
           ));
     } else {
       Get.to(() => VoiceResponsePage(inputText: convertedSPeechToText));

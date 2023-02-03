@@ -8,14 +8,18 @@ import 'package:get/get.dart';
 class SearchRequest extends GetxController {
   final _chatGptClient = ChatGPT.builder(token: ApiKey.apiKey);
 
-  Future<Completion> makeSearch(String userPrompt) async {
+  Future<Completion?> makeSearch(String userPrompt) async {
     isSearching(true);
     Completion? response = await _chatGptClient.textCompletion(
         request: CompletionRequest(prompt: userPrompt, maxTokens: 256));
 
+    // response.then(
+    //   (value) => action,
+    // );
+
     isSearching(false);
 
-    return response!;
+    return response;
   }
 
   ///Whether the user is currently making a search now or not

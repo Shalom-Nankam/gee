@@ -35,7 +35,7 @@ class AppTheme extends GetxController {
       useMaterial3: true,
       iconTheme: IconThemeData(
           color: darkMode.value
-              ? const Color(0xff000000)
+              ? const Color(0xffffffff)
               : const Color(0xff000000),
           size: 50),
       scaffoldBackgroundColor:
@@ -48,11 +48,11 @@ class AppTheme extends GetxController {
           centerTitle: true,
           iconTheme: IconThemeData(
               color: darkMode.value
-                  ? const Color(0xff000000)
+                  ? const Color(0xffffffff)
                   : const Color(0xff000000),
               size: 30)),
       textTheme: TextTheme(
-          button: TextStyle(
+          labelLarge: TextStyle(
         color:
             darkMode.value ? const Color(0xffffffff) : const Color(0xff000000),
       )),

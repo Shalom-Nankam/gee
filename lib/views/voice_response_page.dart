@@ -14,7 +14,7 @@ class VoiceResponsePage extends StatefulWidget {
 
 class _VoiceResponsePageState extends State<VoiceResponsePage> {
   late TextToSpeech textToSpeech = TextToSpeech();
-  late Future<Completion> searchResponse;
+  late Future<Completion?> searchResponse;
 
   final searchManager = Get.put(SearchRequest());
 
