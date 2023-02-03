@@ -101,12 +101,14 @@ class HomeController extends State<HomeScreen> {
     ///If the user typed their search, take them to
     ///the typed response page else take them to the voice response page
     if (typeSearch) {
+      clearController();
       Get.to(() => TypedResponsePage(
             query: searchQuery,
             response: requestResponse!.choices![0].text!,
           ));
     } else {
-      Get.to(() => VoiceResponsePage(inputText: convertedSPeechToText));
+      Get.to(() => VoiceResponsePage(
+          request: searchQuery, response: requestResponse!.choices![0].text!));
     }
   }
 

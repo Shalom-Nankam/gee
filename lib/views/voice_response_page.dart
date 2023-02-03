@@ -1,12 +1,13 @@
-import 'package:chat_gpt_api/app/model/data_model/completion/completion.dart';
 import 'package:flutter/material.dart';
 import 'package:gee/state_management/search_request.dart';
 import 'package:get/get.dart';
 import 'package:text_to_speech/text_to_speech.dart';
 
 class VoiceResponsePage extends StatefulWidget {
-  const VoiceResponsePage({super.key, required this.inputText});
-  final String inputText;
+  const VoiceResponsePage(
+      {super.key, required this.request, required this.response});
+  final String request;
+  final String response;
 
   @override
   State<VoiceResponsePage> createState() => _VoiceResponsePageState();
@@ -14,23 +15,16 @@ class VoiceResponsePage extends StatefulWidget {
 
 class _VoiceResponsePageState extends State<VoiceResponsePage> {
   late TextToSpeech textToSpeech = TextToSpeech();
-  late Future<Completion?> searchResponse;
+  // late Future<Completion?> searchResponse;
 
   final searchManager = Get.put(SearchRequest());
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    searchResponse = searchManager.makeSearch(widget.inputText);
-    super.initState();
-  }
 
   void speak() {
     textToSpeech.setVolume(1);
     textToSpeech.setRate(1.0);
     textToSpeech.setPitch(1.0);
     textToSpeech.setLanguage("en-US");
-    textToSpeech.speak(widget.inputText);
+    textToSpeech.speak(widget.response);
   }
 
   @override
@@ -47,49 +41,25 @@ class _VoiceResponsePageState extends State<VoiceResponsePage> {
         padding: const EdgeInsets.all(10),
         child: SafeArea(
             child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if (!searchManager.isSearching.value)
-              Text(
-                widget.inputText,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24,
-                ),
+            Text(
+              widget.request,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
               ),
+            ),
             const SizedBox(
               height: 30,
             ),
-            FutureBuilder(
-              future: searchResponse,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Column(
-                    children: [
-                      Text(
-                        snapshot.data!.choices != null
-                            ? snapshot.data!.choices![0].text!
-                            : '',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 20,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      IconButton(
-                          onPressed: () => textToSpeech
-                              .speak(snapshot.data!.choices![0].text!),
-                          icon: const Icon(
-                            Icons.play_arrow_outlined,
-                            size: 50,
-                          ))
-                    ],
-                  );
-                }
-                return const Center(child: CircularProgressIndicator());
-              },
-            )
+            Text(
+              widget.response,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
+            ),
           ],
         )),
       ),
