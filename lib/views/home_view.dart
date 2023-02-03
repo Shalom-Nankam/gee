@@ -170,56 +170,67 @@ class RecordSearch extends StatelessWidget {
     return Obx(
       () => controller.searchManager.isSearching.value
           ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                const SizedBox(
-                  height: 10,
+          : Stack(children: [
+              if (controller.userSpeech.isListening)
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    height: 20,
+                    width: 20,
+                    color: Colors.red,
+                  ),
                 ),
-                Text(
-                    controller.userSpeech.isListening
-                        ? controller.stopRecordInstruction
-                        : controller.recordInstruction,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: AppTheme.darkMode.value
-                            ? const Color(0xffffffff)
-                            : const Color(0xff000000))),
-                const SizedBox(
-                  height: 20,
-                ),
-                if (controller.userSpeech.isListening ||
-                    controller.searchManager.searchQuery.value.isNotEmpty)
+              Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                      controller.userSpeech.isListening
+                          ? controller.stopRecordInstruction
+                          : controller.recordInstruction,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: AppTheme.darkMode.value
+                              ? const Color(0xffffffff)
+                              : const Color(0xff000000))),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  if (controller.userSpeech.isListening ||
+                      controller.searchManager.searchQuery.value.isNotEmpty)
+                    SizedBox(
+                        // height: 200,
+                        child: Obx(
+                      () => Text(
+                        controller.searchManager.searchQuery.value,
+                      ),
+                    )),
                   SizedBox(
-                      height: 200,
-                      child: Obx(
-                        () => Text(
-                          controller.searchManager.searchQuery.value,
-                        ),
-                      )),
-                SizedBox(
-                  height: 200,
-                  width: 200,
-                  child: controller.userSpeech.isListening
-                      ? RecordSpeechButton(
-                          toRecord: false,
-                          pressAction: () => controller.stopRecordingSpeech(),
-                        )
-                      : RecordSpeechButton(
-                          toRecord: true,
-                          pressAction: () => controller.recordSpeech(),
-                        ),
-                ),
-                const SizedBox(
-                  height: 80,
-                ),
-                SearchButton(
-                  pressAction: () =>
-                      controller.makeSearch(controller.convertedSPeechToText),
-                )
-              ],
-            ),
+                    height: 200,
+                    width: 200,
+                    child: controller.userSpeech.isListening
+                        ? RecordSpeechButton(
+                            toRecord: false,
+                            pressAction: () => controller.stopRecordingSpeech(),
+                          )
+                        : RecordSpeechButton(
+                            toRecord: true,
+                            pressAction: () => controller.recordSpeech(),
+                          ),
+                  ),
+                  const SizedBox(
+                    height: 80,
+                  ),
+                  SearchButton(
+                    pressAction: () =>
+                        controller.makeSearch(controller.convertedSPeechToText),
+                  )
+                ],
+              ),
+            ]),
     );
   }
 }
